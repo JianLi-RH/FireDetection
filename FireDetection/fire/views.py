@@ -22,9 +22,9 @@ from FireDetection.fire.serializers import UserSerializer, GroupSerializer
 def checkFireStatus(request):
     try:
         photo = request.FILES.get('photo')
-        detect = 'FireDetection/fire/yolov5/detect.py'
-        source = 'FireDetection/fire/yolov5/demo/1.png'
-        weight = 'FireDetection/fire/yolov5/best.pt'
+        detect = 'FireDetection/fire/FireAI/detect.py'
+        source = 'FireDetection/fire/FireAI/demo/1.png'
+        weight = 'FireDetection/fire/FireAI/best.pt'
         # save_dir = f'FireDetection/fire/results'
         save_dir = tempfile.mkdtemp()
 
@@ -60,4 +60,4 @@ def checkFireStatus(request):
         # response
         return Response({'status': f"{status}", "message": f"{msg}", "fired" : base64Str})
     except KeyError:
-        return Response({'status':'9', "message": "没有上传图片!"})
+        return Response({'status':'9', "message": "验证失败!"})
