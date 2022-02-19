@@ -44,6 +44,9 @@ def checkFireStatus(request):
         script = f"python {detect} --source {save_dir}/{photo.name} --project {save_dir} --weights {weight}"
         print(script)
         r = subprocess.call(script, shell=True)
+        print(f"AI验证结果{r}")
+        if r != 0:
+            raise RuntimeError(f"AI验证结果{r}")
 
         firedPictures = [f for f in listdir(f"{save_dir}/exp") if isfile(join(f"{save_dir}/exp", f))]
         print(firedPictures)
