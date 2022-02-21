@@ -13,7 +13,7 @@ RUN apt-get update
 RUN pip install --upgrade pip
 RUN apt-get install libgl1-mesa-glx
 COPY ./requirements.txt /usr/src/app
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Download torch
 # RUN wget https://download.pytorch.org/whl/lts/1.8/cu102/torch-1.8.2%2Bcu102-cp39-cp39-linux_x86_64.whl
