@@ -29,8 +29,8 @@ docker run --name fire -d -p 8000:8000 fire:latest
     登录：否
     请求方式：post
     请求参数：
-        参数名： photo
-        参数类型： 图片
+        参数名： photo, 参数类型： 图片
+        参数名： cameraID, 参数类型： 文本
     
     返回值：
         状态： status， 0： 没着火， 1： 起火了， 9： 执行异常

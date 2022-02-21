@@ -9,21 +9,23 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install dependencies
-RUN pip install --upgrade pip 
+RUN apt-get update
+RUN pip install --upgrade pip
+RUN apt-get install libgl1-mesa-glx
 COPY ./requirements.txt /usr/src/app
 RUN pip install -r requirements.txt
 
 # Download torch
-RUN wget https://download.pytorch.org/whl/lts/1.8/cu102/torch-1.8.2%2Bcu102-cp38-cp38-linux_x86_64.whl
-RUN wget https://download.pytorch.org/whl/lts/1.8/cu102/torchvision-0.9.2%2Bcu102-cp38-cp38-linux_x86_64.whl
-RUN wget https://download.pytorch.org/whl/lts/1.8/torchaudio-0.8.2-cp38-cp38-linux_x86_64.whl
+# RUN wget https://download.pytorch.org/whl/lts/1.8/cu102/torch-1.8.2%2Bcu102-cp39-cp39-linux_x86_64.whl
+# RUN wget https://download.pytorch.org/whl/lts/1.8/cu102/torchvision-0.9.2%2Bcu102-cp39-cp39-linux_x86_64.whl
+# RUN wget https://download.pytorch.org/whl/lts/1.8/torchaudio-0.8.2-cp39-cp39-linux_x86_64.whl
 # Install torch
 RUN pip uninstall torch -y
 RUN pip uninstall torchaudio -y
 RUN pip uninstall torchvision -y
-RUN pip install torch-1.8.2+cu102-cp38-cp38-linux_x86_64.whl
-RUN pip install torchaudio-0.8.2-cp38-cp38-linux_x86_64.whl
-RUN pip install torchvision-0.9.2+cu102-cp38-cp38-linux_x86_64.whl
+RUN pip install torch-1.8.2+cpu-cp39-cp39-linux_x86_64.whl
+RUN pip install torchaudio-0.8.2-cp39-cp39-linux_x86_64.whl
+RUN pip install torchvision-0.9.2+cu102-cp39-cp39-linux_x86_64.whl
 
 # copy project
 COPY . /usr/src/app

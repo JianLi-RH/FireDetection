@@ -60,6 +60,11 @@ def checkFireStatus(request):
             with open(f'{save_dir}/exp/{photo.name}', 'rb') as img:
                 base64Str = base64.b64encode(img.read())
 
+            cameraID = request.data['cameraID']
+            print(f"相机编号：{cameraID}")
+
+            # TODO： 调用后台接口存储着火图片
+
         # response
         return Response({'status': f"{status}", "message": f"{msg}", "fired" : base64Str})
     except KeyError:
