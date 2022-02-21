@@ -9,9 +9,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install dependencies
-RUN apt-get update
+RUN apt update && apt install -y libgl1-mesa-glx
 RUN pip install --upgrade pip
-RUN apt-get install libgl1-mesa-glx
 COPY ./requirements.txt /usr/src/app
 RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
