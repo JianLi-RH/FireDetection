@@ -2,7 +2,7 @@
 
 Setup step:
 1. git clone https://github.com/JianLi-RH/FireDetection.git
-2. git clone https://github.com/JianLi-RH/FireDetection.git
+2. git clone https://github.com/JianLi-RH/FireAI.git
 3. Run below command to move FireAI/ into FireDetection/FireDetection/fire
     mv FireAI/ FireDetection/FireDetection/fire
 4. download best.pt and put it into folder FireDetection/FireDetection/fire/FireAI
@@ -12,7 +12,7 @@ Setup step:
 
 安装步骤：
 1. git clone https://github.com/JianLi-RH/FireDetection.git
-2. git clone https://github.com/JianLi-RH/FireDetection.git
+2. git clone https://github.com/JianLi-RH/FireAI.git
 3. 执行以下命令，将FireAI/移动到FireDetection/FireDetection/fire文件夹下
     mv FireAI/ FireDetection/FireDetection/fire
 4. 下载 best.pt 并将其放在 FireDetection/FireDetection/fire/FireAI文件夹下
