@@ -12,6 +12,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apt update && apt install -y libgl1-mesa-glx
 RUN pip install --upgrade pip
 COPY ./requirements.txt /usr/src/app
+COPY ./*.whl /usr/src/app/
 RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Download torch
@@ -19,9 +20,6 @@ RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 # RUN wget https://download.pytorch.org/whl/lts/1.8/cu102/torchvision-0.9.2%2Bcu102-cp39-cp39-linux_x86_64.whl
 # RUN wget https://download.pytorch.org/whl/lts/1.8/torchaudio-0.8.2-cp39-cp39-linux_x86_64.whl
 # Install torch
-RUN pip uninstall torch -y
-RUN pip uninstall torchaudio -y
-RUN pip uninstall torchvision -y
 RUN pip install torch-1.8.2+cpu-cp39-cp39-linux_x86_64.whl
 RUN pip install torchaudio-0.8.2-cp39-cp39-linux_x86_64.whl
 RUN pip install torchvision-0.9.2+cu102-cp39-cp39-linux_x86_64.whl
