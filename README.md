@@ -22,6 +22,9 @@ Setup step:
 运行镜像：
 docker run --name fire -d -p 8000:8000 fire:latest
 
+添加管理员：
+python manage.py createsuperuser
+
 接口文档：
 
 1. /fire/check

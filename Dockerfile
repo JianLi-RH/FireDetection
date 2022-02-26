@@ -29,4 +29,9 @@ COPY . /usr/src/app
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+RUN set -x && \
+    python manage.py makemigrations && \
+    python manage.py migrate && \
+    python manage.py runserver 8000
