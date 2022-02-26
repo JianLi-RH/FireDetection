@@ -68,7 +68,7 @@ def checkFireStatus(request):
         base64Str = ''
         if status == 1:
             with open(f'{save_dir}/exp/{photo.name}', 'rb') as img:
-                base64Str = base64.b64encode(img.read())
+                base64Str = str(base64.b64encode(img.read()), encoding='utf-8')
 
             cameraID = request.data['cameraID']
             print(f"相机编号：{cameraID}")
